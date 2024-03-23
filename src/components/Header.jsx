@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div className="flex px-[7rem] py-[1rem] gap-[2rem] uppercase *:cursor-pointer hover:*:text-red-800">
+    <div className="flex py-[1rem] gap-[2rem] uppercase *:cursor-pointer hover:*:text-red-800">
         <div>sale</div>
         <div>clothing</div>
         <div>bags</div>

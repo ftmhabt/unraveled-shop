@@ -4,6 +4,11 @@
     font-family: "Quicksand", sans-serif;
 }
 
+#root{
+    width: 80vw;
+    margin: 0 auto
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

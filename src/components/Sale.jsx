@@ -1,6 +1,6 @@
 export default function Sale() {
   return (
-    <div className="px-[7rem]">
+    <div>
         <Hero/>
     </div>
   )
