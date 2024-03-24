@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Wix+Madefor+Text:ital@0;1&display=swap');
 
 *{
     font-family: "Quicksand", sans-serif;
@@ -7,6 +8,11 @@
 #root{
     width: 80vw;
     margin: 0 auto
+}
+
+.hero-text{
+    font-family: "Encode Sans Expanded", sans-serif;
+    font-weight: 200;
 }
 
 @tailwind base;
