@@ -15,6 +15,10 @@
     font-weight: 200;
 }
 
+.card-container{
+    align-items: end;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -32,8 +32,10 @@ export default function Products() {
             (loading && <div className="text-xl font-medium">loading posts...</div>) ||
             (error && <div className="text-red-700">{error}</div>) ||
             (data && data.map((product) => <div className="flex flex-col w-[250px] h-[350px] gap-5" key={product.id}>
-                <img className="max-w-[200px] max-h-[300px]" src={product.image} alt={product.title} />
-                <div>{product.title}</div>
+                <div className="flex items-center w-[200px] h-[250px]">
+                <img className="max-w-[200px] max-h-[250px]" src={product.image} alt={product.title} />
+                </div>
+                <div className="overflow-hidden max-h-[70px]">{product.title}</div>
             </div>))
         }
     </div>
