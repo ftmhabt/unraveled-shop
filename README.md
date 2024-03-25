@@ -5,7 +5,6 @@
         * ProductCard: Renders information for a single product (image, name, price, etc.) with click functionality for details.
         * FilterBar: Allows users to filter products based on various criteria (category, color, size, etc.).
         * SortBar: Provides options for sorting products (price, popularity, etc.).
-        * Pagination: Enables users to navigate through large product sets.
 * **Product Details:** This module will display detailed information about a specific product, including images, description, variations (size, color), reviews, and add-to-cart functionality.
     * Components: 
         * ProductHero: Large image or carousel showcasing the product.
