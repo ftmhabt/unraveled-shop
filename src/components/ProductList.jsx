@@ -35,8 +35,8 @@ export default function ProductList() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="flex flex-col gap-[2rem] py-[2rem]">
+      <div className="flex gap-3">
         <FilterBar data={data} onChange={SetCategory} />
         <SortBar sort={sort} onChange={SetSort} />
       </div>

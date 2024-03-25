@@ -8,9 +8,9 @@ export default function FilterBar({ data,onChange }) {
   }
   return (
     <div>
-      <label htmlFor="category">category: </label>
-      <select name="category" id="category" onChange={(e)=>onChange(e.target.value)}>
-        <option value="all">All</option>
+      <label htmlFor="category" className="text-red-800">category: </label>
+      <select name="category" id="category" className="rounded border focus:outline-0 focus:border focus:border-red-800" onChange={(e)=>onChange(e.target.value)}>
+        <option value="all">all</option>
         {uniqueCategories &&
           Array.from(uniqueCategories).map((item) => (
             <option key={item} value={item}>
