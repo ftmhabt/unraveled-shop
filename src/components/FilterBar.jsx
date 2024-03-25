@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function FilterBar({ data,getSelected }) {
+export default function FilterBar({ data,onChange }) {
   let uniqueCategories;
   if (data) {
     const categories = data.map((item) => item.category);
@@ -9,7 +9,7 @@ export default function FilterBar({ data,getSelected }) {
   return (
     <div>
       <label htmlFor="category">category: </label>
-      <select name="category" id="category" onChange={()=>getSelected()}>
+      <select name="category" id="category" onChange={(e)=>onChange(e.target.value)}>
         <option value="all">All</option>
         {uniqueCategories &&
           Array.from(uniqueCategories).map((item) => (
@@ -24,5 +24,5 @@ export default function FilterBar({ data,getSelected }) {
 
 FilterBar.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
-  getSelected: PropTypes.func,
+  onChange: PropTypes.func,
 };

@@ -12,9 +12,6 @@ export default function ProductList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  function getSelected() {
-    SetCategory(document.querySelector('[selected]').value) ;  
-  }
 
   useEffect(() => {
     async function FetchData() {
@@ -40,11 +37,12 @@ export default function ProductList() {
   return (
     <div>
       <div>
-        <FilterBar data={data} category={category} onChange={getSelected} />
-        <div>{category}</div>
+        <FilterBar data={data} onChange={SetCategory} />
         <SortBar sort={sort} onChange={SetSort} />
       </div>
       <Products data={data} loading={loading} error={error} category={category} sort={sort}/>
     </div>
   );
 }
+
+
