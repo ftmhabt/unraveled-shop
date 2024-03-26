@@ -1,17 +1,14 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import FilterBar from "./FilterBar";
 import SortBar from "./SortBar";
 import Products from "./Products";
 
 export default function ProductList() {
-  const [category, SetCategory] = useState('all');
-  const [sort, SetSort] = useState('newest');
-
+  const [category, setCategory] = useState("all");
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
 
   useEffect(() => {
     async function FetchData() {
@@ -21,6 +18,11 @@ export default function ProductList() {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
         let postsData = await response.json();
+        postsData.sort((a, b) => {
+          const nameA = a.title.toLowerCase();
+          const nameB = b.title.toLowerCase();
+          return nameA.localeCompare(nameB);
+        });
         setData(postsData);
         setError(null);
       } catch (err) {
@@ -37,12 +39,15 @@ export default function ProductList() {
   return (
     <div className="flex flex-col gap-[2rem] py-[2rem]">
       <div className="flex gap-3">
-        <FilterBar data={data} onChange={SetCategory} />
-        <SortBar sort={sort} onChange={SetSort} />
+        {data && <FilterBar data={data} onChange={setCategory} />}
+        {data && <SortBar data={data} setData={setData} />}
       </div>
-      <Products data={data} loading={loading} error={error} category={category} sort={sort}/>
+      <Products
+        data={data}
+        loading={loading}
+        error={error}
+        category={category}
+      />
     </div>
   );
 }
-
-
