@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import FilterBar from "./FilterBar";
 import SortBar from "./SortBar";
 import Products from "./Products";
+import PropTypes from "prop-types";
 
-export default function ProductList() {
+export default function ProductList({ setCart }) {
   const [category, setCategory] = useState("all");
 
   const [data, setData] = useState(null);
@@ -47,7 +48,12 @@ export default function ProductList() {
         loading={loading}
         error={error}
         category={category}
+        setCart={setCart}
       />
     </div>
   );
 }
+
+ProductList.PropTypes = {
+  setCart: PropTypes.func,
+};

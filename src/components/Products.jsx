@@ -1,12 +1,21 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export default function Products({ data, error, loading, category }) {
+export default function Products({ data, error, loading, category,setCart }) {
   const [hoveredId, setHoveredId] = useState("");
 
   const handleHover = (isHovered, productId) => {
     isHovered ? setHoveredId(productId) : setHoveredId("");
   };
+
+  const handleAddToCart=(productId)=>{
+    setCart((perv)=>(
+      [
+        ...perv,
+        data.filter(item=>item.id===productId)
+      ]
+    ))
+  }
   return (
     <div className="flex justify-center flex-wrap gap-20 items-end">
       {(loading && (
@@ -35,7 +44,7 @@ export default function Products({ data, error, loading, category }) {
                     className={`${
                       hoveredId === product.id ? "block" : "hidden"
                     } absolute bg-red-800 px-[2rem] py-[.5rem] text-white`}
-                    onClick={}
+                    onClick={()=>handleAddToCart(product.id)}
                   >
                     add to cart
                   </button>
@@ -53,4 +62,5 @@ Products.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool,
   category: PropTypes.string,
+  setCart:PropTypes.func,
 };

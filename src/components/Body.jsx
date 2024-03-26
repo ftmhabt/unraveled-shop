@@ -1,9 +1,14 @@
 import Sale from "./Sale"
+import PropTypes from "prop-types";
 
-export default function Body() {
+export default function Body({setCart}) {
   return (
     <>
-        <Sale/>
+        <Sale setCart={setCart}/>
     </>
   )
 }
+
+Body.PropTypes = {
+  setCart: PropTypes.func,
+};
