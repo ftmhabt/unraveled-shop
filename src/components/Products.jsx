@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 export default function Products({ data, error, loading, category }) {
+  const [hoveredId, setHoveredId] = useState("");
+
+  const handleHover = (isHovered, productId) => {
+    isHovered ? setHoveredId(productId) : setHoveredId("");
+  };
   return (
     <div className="flex justify-center flex-wrap gap-20 items-end">
       {(loading && (
@@ -16,20 +22,26 @@ export default function Products({ data, error, loading, category }) {
               <div
                 className="flex flex-col w-[250px] h-[350px] gap-5"
                 key={product.id}
+                onMouseEnter={() => handleHover(true, product.id)}
+                onMouseLeave={() => handleHover(false, product.id)}
               >
-                <div className="flex items-center w-[200px] h-[250px]">
+                <div className="flex relative items-center w-[200px] h-[250px]">
                   <img
                     className="max-w-[200px] max-h-[250px]"
                     src={product.image}
                     alt={product.title}
                   />
+                  <button
+                    className={`${
+                      hoveredId === product.id ? "block" : "hidden"
+                    } absolute bg-red-800 px-[2rem] py-[.5rem] text-white`}
+                    onClick={}
+                  >
+                    add to cart
+                  </button>
                 </div>
-                <div className="">
-                  {product.title}
-                </div>
-                <div>
-                  {product.price}$
-                </div>
+                <div className="">{product.title}</div>
+                <div>{product.price}$</div>
               </div>
             )))}
     </div>
