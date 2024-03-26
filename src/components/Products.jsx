@@ -24,8 +24,11 @@ export default function Products({ data, error, loading, category }) {
                     alt={product.title}
                   />
                 </div>
-                <div className="overflow-hidden max-h-[70px]">
+                <div className="">
                   {product.title}
+                </div>
+                <div>
+                  {product.price}$
                 </div>
               </div>
             )))}
