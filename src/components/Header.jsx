@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function Header({cart,setCart}) {
+export default function Header({cart}) {
   return (
     <div className="flex py-[1rem] gap-[2rem] uppercase *:cursor-pointer hover:*:text-red-800">
         <div>sale</div>
@@ -8,7 +8,7 @@ export default function Header({cart,setCart}) {
         <div>bags</div>
         <div>accessories</div>
         <div>about</div>
-        <div className="ml-auto">cart {`(${cart.length+1})`}</div>
+        <div className="ml-auto">cart {`(${cart.length})`}</div>
         <div>account</div>
         <div>search</div>
     </div>
@@ -18,5 +18,4 @@ export default function Header({cart,setCart}) {
 
 Header.PropTypes = {
   cart:PropTypes.arrayOf(PropTypes.object),
-  setCart: PropTypes.func,
 };

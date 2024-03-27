@@ -4,7 +4,7 @@ import SortBar from "./SortBar";
 import Products from "./Products";
 import PropTypes from "prop-types";
 
-export default function ProductList({ setCart }) {
+export default function ProductList({cart, setCart }) {
   const [category, setCategory] = useState("all");
 
   const [data, setData] = useState(null);
@@ -48,6 +48,7 @@ export default function ProductList({ setCart }) {
         loading={loading}
         error={error}
         category={category}
+        cart={cart}
         setCart={setCart}
       />
     </div>

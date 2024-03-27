@@ -1,11 +1,11 @@
 import ProductList from "./ProductList"
 import PropTypes from "prop-types";
 
-export default function Sale({setCart}) {
+export default function Sale({cart,setCart}) {
   return (
     <div>
         <Hero/>
-        <ProductList setCart={setCart}/>
+        <ProductList cart={cart} setCart={setCart}/>
     </div>
   )
 }

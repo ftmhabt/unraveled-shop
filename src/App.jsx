@@ -7,9 +7,8 @@ function App() {
 const [cart,setCart]=useState([]);
   return (
     <>
-    {console.table(cart)}
-      <Header cart={cart} setCart={setCart}/>
-      <Body setCart={setCart}/>
+      <Header cart={cart}/>
+      <Body cart={cart} setCart={setCart}/>
       <Footer/>
     </>
   )

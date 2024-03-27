@@ -1,21 +1,39 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export default function Products({ data, error, loading, category,setCart }) {
+export default function Products({
+  data,
+  error,
+  loading,
+  category,
+  cart,
+  setCart,
+}) {
   const [hoveredId, setHoveredId] = useState("");
 
   const handleHover = (isHovered, productId) => {
     isHovered ? setHoveredId(productId) : setHoveredId("");
   };
 
-  const handleAddToCart=(productId)=>{
-    setCart((perv)=>(
-      [
-        ...perv,
-        data.filter(item=>item.id===productId)
-      ]
-    ))
-  }
+  const handleAddToCart = (productId) => {
+    
+    const product = data.find((item) => item.id === productId);
+
+    setCart((prevCart) => {
+      // console.table(cart)
+      // if (product) {
+      //   return prevCart.map((item) =>
+      //     item.id === productId
+      //       ? { ...item, quantity: item.quantity + 1 }
+      //       : item
+      //   );
+      // } else {
+      //   return [...prevCart, { ...product, quantity: 1 }];
+      // }
+      return [...prevCart,product]
+    });
+  };
+
   return (
     <div className="flex justify-center flex-wrap gap-20 items-end">
       {(loading && (
@@ -44,7 +62,7 @@ export default function Products({ data, error, loading, category,setCart }) {
                     className={`${
                       hoveredId === product.id ? "block" : "hidden"
                     } absolute bg-red-800 px-[2rem] py-[.5rem] text-white`}
-                    onClick={()=>handleAddToCart(product.id)}
+                    onClick={() => handleAddToCart(product.id)}
                   >
                     add to cart
                   </button>
@@ -62,5 +80,6 @@ Products.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool,
   category: PropTypes.string,
-  setCart:PropTypes.func,
+  cart: PropTypes.arrayOf(PropTypes.object),
+  setCart: PropTypes.func,
 };

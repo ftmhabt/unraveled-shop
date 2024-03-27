@@ -50,6 +50,6 @@ export default function SortBar({ data, setData }) {
 SortBar.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   sort: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   setData:PropTypes.func,
 };
