@@ -13,17 +13,27 @@ export const ShopContext = createContext({
 });
 
 function App() {
-  const [cart, setCart] = useState([]);
-
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState([]);
 
   const addToCart = (productId) => {
-    setCart((prev) => ({ ...prev, [productId]: prev[productId] + 1 }));
+    const updatedCart = [...cart];
+  
+    const existingItemIndex = updatedCart.findIndex(item => item.id === productId);
+  
+    if (existingItemIndex === -1) {
+      updatedCart.push({ id: productId, quantity: 1 });
+    } else {
+      updatedCart[existingItemIndex].quantity += 1;
+    }
+  
+    setCart(updatedCart);
   };
+  
 
-  const sortData=(list)=>setData(list);
+  const sortData = (list) => setData(list);
 
   useEffect(() => {
     async function FetchData() {
@@ -52,7 +62,9 @@ function App() {
   }, []);
 
   return (
-    <ShopContext.Provider value={{ cart, addToCart, data, loading, error, sortData }}>
+    <ShopContext.Provider
+      value={{ cart, addToCart, data, loading, error, sortData }}
+    >
       <Header />
       <Body />
       <Footer />
