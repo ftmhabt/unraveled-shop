@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { useState, useContext } from "react";
 import { ShopContext } from "../App";
 
-export default function Products({ data, error, loading, category }) {
-  const { addToCart } = useContext(ShopContext);
+export default function Products({ category }) {
+  const { addToCart ,data,loading,error} = useContext(ShopContext);
+
 
   const [hoveredId, setHoveredId] = useState("");
 
@@ -11,11 +12,6 @@ export default function Products({ data, error, loading, category }) {
     isHovered ? setHoveredId(productId) : setHoveredId("");
   };
 
-  const handleAddToCart = (productId) => {
-    const product = data.find((item) => item.id === productId);
-
-    addToCart(product);
-  };
 
   return (
     <div className="flex justify-center flex-wrap gap-20 items-end">
@@ -45,7 +41,7 @@ export default function Products({ data, error, loading, category }) {
                     className={`${
                       hoveredId === product.id ? "block" : "hidden"
                     } absolute bg-red-800 px-[2rem] py-[.5rem] text-white`}
-                    onClick={() => handleAddToCart(product.id)}
+                    onClick={() => addToCart(product.id)}
                   >
                     add to cart
                   </button>

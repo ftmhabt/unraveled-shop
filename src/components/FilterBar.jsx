@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
+import { ShopContext } from "../App";
+import { useContext } from "react";
 
-export default function FilterBar({ data,onChange }) {
+export default function FilterBar({ onChange }) {
+  
+  const {data}=useContext(ShopContext);
+  
   let uniqueCategories;
   if (data) {
     const categories = data.map((item) => item.category);
