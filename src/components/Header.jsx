@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
+import { ShopContext } from "../App";
 
 export default function Header() {
   const { cart } = useContext(ShopContext);
   return (
     <div className="flex py-[1rem] gap-[2rem] uppercase *:cursor-pointer hover:*:text-red-800">
-        <div><Link to='/sale'>sale</Link></div>
+        <div><Link to='/'>sale</Link></div>
         <div>clothing</div>
         <div>bags</div>
         <div>accessories</div>

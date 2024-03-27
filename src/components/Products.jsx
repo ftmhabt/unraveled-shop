@@ -1,14 +1,9 @@
 import PropTypes from "prop-types";
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
+import { ShopContext } from "../App";
 
-export default function Products({
-  data,
-  error,
-  loading,
-  category,
-}) {
-  
-  const { cart,addToCart } = useContext(ShopContext);
+export default function Products({ data, error, loading, category }) {
+  const { addToCart } = useContext(ShopContext);
 
   const [hoveredId, setHoveredId] = useState("");
 
@@ -17,7 +12,6 @@ export default function Products({
   };
 
   const handleAddToCart = (productId) => {
-    
     const product = data.find((item) => item.id === productId);
 
     addToCart(product);

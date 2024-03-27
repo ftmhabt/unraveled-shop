@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { ShopContext } from "../App";
 
-export default function Cart({ cart, setCart }) {
+export default function Cart() {
+  const { cart } = useContext(ShopContext);
   return (
     <div>
       <h1>cart</h1>
       {cart.map((item) => (
-        <div className="flex">
+        <div key={item.id} className="flex">
           <img
             src={item.image}
             alt={item.title}
