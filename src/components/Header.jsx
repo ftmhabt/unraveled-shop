@@ -11,7 +11,7 @@ export default function Header() {
         <div>bags</div>
         <div>accessories</div>
         <div>about</div>
-        <div className="ml-auto"><Link to='/cart'>cart {`(${cart.length})`}</Link></div>
+        <div className="ml-auto"><Link to='/cart'>cart{`(${cart.reduce((acc,item)=>acc+item.quantity,0)})`}</Link></div>
         <div>account</div>
         <div>search</div>
     </div>
