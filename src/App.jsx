@@ -1,17 +1,19 @@
-import Header from "./components/Header"
-import Body from "./components/Body"
-import Footer from "./components/Footer"
-import { useState } from "react"
-
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import { createContext } from "react";
 function App() {
-const [cart,setCart]=useState([]);
+  const ShopContext = createContext({
+    cart: [],
+    addToCart: () => {},
+  });
   return (
-    <>
-      <Header cart={cart}/>
-      <Body cart={cart} setCart={setCart}/>
-      <Footer/>
-    </>
-  )
+    <ShopContext.Provider value={{ cart, addToCart }}>
+      <Header />
+      <Body />
+      <Footer />
+    </ShopContext.Provider>
+  );
 }
 
-export default App
+export default App;

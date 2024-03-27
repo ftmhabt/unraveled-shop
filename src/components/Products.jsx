@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState,useContext } from "react";
 
 export default function Products({
   data,
   error,
   loading,
   category,
-  cart,
-  setCart,
 }) {
+  
+  const { cart,addToCart } = useContext(ShopContext);
+
   const [hoveredId, setHoveredId] = useState("");
 
   const handleHover = (isHovered, productId) => {
@@ -19,19 +20,7 @@ export default function Products({
     
     const product = data.find((item) => item.id === productId);
 
-    setCart((prevCart) => {
-      // console.table(cart)
-      // if (product) {
-      //   return prevCart.map((item) =>
-      //     item.id === productId
-      //       ? { ...item, quantity: item.quantity + 1 }
-      //       : item
-      //   );
-      // } else {
-      //   return [...prevCart, { ...product, quantity: 1 }];
-      // }
-      return [...prevCart,product]
-    });
+    addToCart(product);
   };
 
   return (

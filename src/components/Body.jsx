@@ -1,17 +1,10 @@
-import Sale from "./Sale"
-import Cart from "./Cart";
-import PropTypes from "prop-types";
+import { Outlet } from "react-router-dom";
 
-export default function Body({cart,setCart}) {
+export default function Body() {
+
   return (
     <>
-        {/* <Sale cart={cart} setCart={setCart}/> */}
-        <Cart cart={cart} setCart={setCart} />
+        <Outlet/>
     </>
   )
 }
-
-Body.PropTypes = {
-  cart:PropTypes.arrayOf(PropTypes.object),
-    setCart: PropTypes.func,
-};
