@@ -8,7 +8,7 @@ export default function Cart() {
   return (
     <div>
       <h1>cart</h1>
-      {cart.map((item) => <CartItem key={item.id} itemId={item.id} quantity={item.quantity}/>)}
+      {cart.map((item) => item.quantity>0?<CartItem key={item.id} itemId={item.id} quantity={item.quantity}/>:'')}
       <button>checkout</button>
     </div>
   );

@@ -6,7 +6,6 @@ export default function CartItem({ itemId,quantity }) {
   const { data,addToCart,removeFromCart } = useContext(ShopContext);
   const product = data.find((product) => product.id === itemId);
   return (
-    quantity&&
     <div className="flex">
       <img
         src={product.image}
