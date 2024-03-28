@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="py-[2rem]">
+    <div className="py-[2rem] mt-auto">
         <Subscribe/>
         <Columns/>
         <div className="text-center uppercase tracking-[1rem] font-bold">unraveled</div>
