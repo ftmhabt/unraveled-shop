@@ -40,6 +40,8 @@ function App() {
     setCart(updatedCart);
   };
 
+  
+
   useEffect(() => {
     async function FetchData() {
       try {
@@ -72,6 +74,7 @@ function App() {
         data,
         loading,
         error,
+        setData,
         cart,
         addToCart,
         removeFromCart,
