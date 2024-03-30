@@ -6,19 +6,19 @@ export default function CartItem({ itemId,quantity }) {
   const { data,addToCart,removeFromCart } = useContext(ShopContext);
   const product = data.find((product) => product.id === itemId);
   return (
-    <div className="flex">
+    <div className="flex w-[700px] h-[200px] justify-between">
       <img
         src={product.image}
         alt={product.title}
-        className="max-w-[200px] max-h-[250px]"
+        className="max-w-[100px] max-h-[100px]"
       />
-      <div>
+      <div className="flex flex-col items-end gap-2">
         <div>{product.title}</div>
         <div>{product.price}$</div>
-        <div className="flex">
-          <button onClick={()=>removeFromCart(itemId)}>-</button>
-          <div> {quantity} </div>
-          <button onClick={()=>addToCart(itemId)}>+</button>
+        <div className="flex gap-[1rem]">
+          <button className="bg-red-800 py-[.25rem] px-[.75rem] text-[#E6E6E6] " onClick={()=>removeFromCart(itemId)}>-</button>
+          <div className="w-[20px] text-center"> {quantity} </div>
+          <button className="bg-red-800 py-[.25rem] px-[.75rem] text-[#E6E6E6] " onClick={()=>addToCart(itemId)}>+</button>
         </div>
       </div>
     </div>
