@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import { ShopContext } from "../App";
 import { useContext } from "react";
+import { ShopContext } from "../context/Context";
 
 export default function SortBar() {
   
-  const {data,sortData}=useContext(ShopContext);
+  const {data,setData}=useContext(ShopContext);
 
   return (
     <div>
@@ -39,7 +39,7 @@ export default function SortBar() {
             default:
               break;
           }
-          sortData(sortedData);
+          setData(sortedData);
         }}
       >
         <option value="a-z">a-z</option>

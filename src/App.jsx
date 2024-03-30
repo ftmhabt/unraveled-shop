@@ -1,16 +1,8 @@
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
-import { useState, useEffect, createContext } from "react";
-
-export const ShopContext = createContext({
-  data: [],
-  loading: true,
-  error: "",
-  cart: [],
-  addToCart: () => {},
-  sortData: () => {},
-});
+import Header from "./main/Header";
+import Body from "./main/Body";
+import Footer from "./main/Footer";
+import { useState, useEffect } from "react";
+import { ShopContext } from "./context/Context";
 
 function App() {
   const [data, setData] = useState(null);
@@ -46,8 +38,6 @@ function App() {
     setCart(updatedCart);
   };
 
-  const sortData = (list) => setData(list);
-
   useEffect(() => {
     async function FetchData() {
       try {
@@ -77,13 +67,12 @@ function App() {
   return (
     <ShopContext.Provider
       value={{
-        cart,
-        addToCart,
-        removeFromCart,
         data,
         loading,
         error,
-        sortData,
+        cart,
+        addToCart,
+        removeFromCart,
       }}
     >
       <Header />

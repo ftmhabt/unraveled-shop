@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ShopContext } from "../App";
-import CartItem from "./CartItem";
+import { ShopContext } from "../context/Context";
+import CartItem from "../components/CartItem";
 
 export default function Cart() {
   const { cart } = useContext(ShopContext);

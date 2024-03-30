@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ShopContext } from "../App";
+import { ShopContext } from "../context/Context";
 
 export default function Header() {
   const { cart } = useContext(ShopContext);

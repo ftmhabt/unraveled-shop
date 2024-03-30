@@ -1,8 +1,7 @@
-import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from '../App'
-import Sale from './Sale'
-import Cart from './Cart'
+import Sale from '../pages/Sale'
+import Cart from '../pages/Cart'
 
 export default function Router() {
     const router = createBrowserRouter([

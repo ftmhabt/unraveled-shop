@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { ShopContext } from "../App";
 import { useContext } from "react";
+import { ShopContext } from "../context/Context";
 
 export default function FilterBar({ onChange }) {
   

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState, useContext } from "react";
-import { ShopContext } from "../App";
+import { ShopContext } from "../context/Context";
 
 export default function Products({ category }) {
   const { addToCart ,data,loading,error} = useContext(ShopContext);

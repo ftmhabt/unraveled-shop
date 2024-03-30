@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import FilterBar from "./FilterBar";
 import SortBar from "./SortBar";
 import Products from "./Products";
-import { ShopContext } from "../App";
+import { ShopContext } from "../context/Context";
 
 export default function ProductList() {
 
