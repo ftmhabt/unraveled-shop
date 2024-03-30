@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState, useContext } from "react";
 import { ShopContext } from "../context/Context";
+import { toast } from 'react-toastify';
 
 export default function Products({ category }) {
   const { addToCart, cart, data, loading, error } = useContext(ShopContext);
@@ -44,7 +45,10 @@ export default function Products({ category }) {
                     className={`${
                       hoveredId === product.id ? "block" : "hidden"
                     } absolute bg-red-800 px-[2rem] py-[.5rem] text-white`}
-                    onClick={() => addToCart(product.id)}
+                    onClick={() => {
+                      addToCart(product.id);
+                      toast.success("added to cart!");
+                    }}
                   >
                     add to cart {getCartQuantity(cart, product.id)}
                   </button>

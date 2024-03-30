@@ -3,7 +3,9 @@ import Body from "./main/Body";
 import Footer from "./main/Footer";
 import { useState, useEffect } from "react";
 import { ShopContext } from "./context/Context";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -75,6 +77,18 @@ function App() {
         removeFromCart,
       }}
     >
+      <ToastContainer
+      position="bottom-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      />
       <Header />
       <Body />
       <Footer />
