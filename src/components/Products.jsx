@@ -3,8 +3,7 @@ import { useState, useContext } from "react";
 import { ShopContext } from "../context/Context";
 
 export default function Products({ category }) {
-  const { addToCart ,data,loading,error} = useContext(ShopContext);
-
+  const { addToCart, cart, data, loading, error } = useContext(ShopContext);
 
   const [hoveredId, setHoveredId] = useState("");
 
@@ -12,6 +11,10 @@ export default function Products({ category }) {
     isHovered ? setHoveredId(productId) : setHoveredId("");
   };
 
+  const getCartQuantity = (cart, productId) => {
+    const item = cart.find((item) => item.id === productId);
+    return item ? `(${item.quantity})` : "";
+  };
 
   return (
     <div className="flex justify-center flex-wrap gap-20 items-end">
@@ -43,7 +46,7 @@ export default function Products({ category }) {
                     } absolute bg-red-800 px-[2rem] py-[.5rem] text-white`}
                     onClick={() => addToCart(product.id)}
                   >
-                    add to cart
+                    add to cart {getCartQuantity(cart, product.id)}
                   </button>
                 </div>
                 <div className="">{product.title}</div>
