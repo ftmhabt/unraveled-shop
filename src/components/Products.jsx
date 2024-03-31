@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useState, useContext } from "react";
 import { ShopContext } from "../context/Context";
 import { toast } from 'react-toastify';
+import { Link } from "react-router-dom";
 
 export default function Products({ category }) {
   const { addToCart, cart, data, loading, error } = useContext(ShopContext);
@@ -53,7 +54,7 @@ export default function Products({ category }) {
                     add to cart {getCartQuantity(cart, product.id)}
                   </button>
                 </div>
-                <div className="">{product.title}</div>
+                <Link to={`product/${product.id}`}>{product.title}</Link>
                 <div>{product.price}$</div>
               </div>
             )))}
