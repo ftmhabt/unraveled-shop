@@ -9,12 +9,12 @@ export default function Product() {
     return <div>Loading product...</div>;
   }
 
-  let product = data.find((item) => item?.id === id);
+  let product = data.find((item) => (item?.id) === Number(id));
 
   return (
     <div>
-      {product?.title}
+      <div>{product?.title}</div>
+      <img src={product?.image} alt={product?.title} />
     </div>
   );
 }
-
