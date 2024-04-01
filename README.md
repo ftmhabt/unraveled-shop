@@ -3,8 +3,8 @@
 
 
 * **Product Listing:** Handles displaying a list of products with filters and sorting functionalities.
-        - [x] FetchData: Fetches product data from an API or database.
-        - [x] ProductCard: Renders information for a single product with click functionality for details and adding the product to the shopping cart.
+     *   - [x] FetchData: Fetches product data from an API or database.
+     *   - [x] ProductCard: Renders information for a single product with click functionality for details and adding the product to the shopping cart.
         - [x] FilterBar: Allows users to filter products based on category.
         - [x] SortBar: Provides options for sorting products (price, etc.).
               
