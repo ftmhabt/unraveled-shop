@@ -2,9 +2,9 @@
 
 * **Product Listing:** Handles displaying a list of products with filters and sorting functionalities. 
     * Components: 
-        ☐ ProductCard: Renders information for a single product (image, name, price) with click functionality for details and adding the product to the shopping cart.
-        ☒ FilterBar: Allows users to filter products based on category.
-        ☒ SortBar: Provides options for sorting products (price, etc.).
+        - [ ] ProductCard: Renders information for a single product (image, name, price) with click functionality for details and adding the product to the shopping cart.
+        - [x] FilterBar: Allows users to filter products based on category.
+        - [x] SortBar: Provides options for sorting products (price, etc.).
 * **Product Details:** Displays detailed information about a specific product, including images, description, variations, reviews, and add-to-cart functionality.
     * Components: 
         * ProductHero: Large image or carousel showcasing the product.
