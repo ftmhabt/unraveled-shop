@@ -8,4 +8,5 @@ export const ShopContext = createContext({
   cart: [],
   addToCart: () => {},
   removeFromCart: () => {},
+  removeAllFromCart: () => {},
 });

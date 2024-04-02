@@ -40,6 +40,18 @@ function App() {
     setCart(updatedCart);
   };
 
+  const removeAllFromCart = (productId) => {
+    const updatedCart = [...cart];
+
+    const existingItemIndex = updatedCart.findIndex(
+      (item) => item.id === productId
+    );
+
+    updatedCart[existingItemIndex].quantity = 0;
+
+    setCart(updatedCart);
+  };
+
   
 
   useEffect(() => {
@@ -78,6 +90,7 @@ function App() {
         cart,
         addToCart,
         removeFromCart,
+        removeAllFromCart,
       }}
     >
       <ToastContainer
