@@ -14,7 +14,7 @@ export default function Products({ category }) {
   };
 
   const getCartQuantity = (cart, productId) => {
-    const item = cart.find((item) => item.id === productId);
+    const item = cart.find((item) => item.id === productId && item.quantity>0);
     return item ? `(${item.quantity})` : "";
   };
 

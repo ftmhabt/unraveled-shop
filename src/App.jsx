@@ -3,9 +3,9 @@ import Body from "./main/Body";
 import Footer from "./main/Footer";
 import { useState, useEffect } from "react";
 import { ShopContext } from "./context/Context";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-  
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,7 +35,9 @@ function App() {
       (item) => item.id === productId
     );
 
-    updatedCart[existingItemIndex].quantity -= 1;
+    updatedCart[existingItemIndex].quantity > 0
+      ? (updatedCart[existingItemIndex].quantity -= 1)
+      : (updatedCart[existingItemIndex].quantity = "");
 
     setCart(updatedCart);
   };
@@ -47,12 +49,10 @@ function App() {
       (item) => item.id === productId
     );
 
-    updatedCart[existingItemIndex].quantity = 0;
+    updatedCart[existingItemIndex].quantity = "";
 
     setCart(updatedCart);
   };
-
-  
 
   useEffect(() => {
     async function FetchData() {
@@ -94,16 +94,16 @@ function App() {
       }}
     >
       <ToastContainer
-      position="bottom-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="light"
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
       <Header />
       <Body />
