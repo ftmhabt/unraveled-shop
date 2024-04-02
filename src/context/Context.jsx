@@ -9,4 +9,6 @@ export const ShopContext = createContext({
   addToCart: () => {},
   removeFromCart: () => {},
   removeAllFromCart: () => {},
+  totalPrice:0, 
+  setTotalPrice: () => {},
 });

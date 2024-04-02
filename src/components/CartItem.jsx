@@ -4,7 +4,7 @@ import { ShopContext } from "../context/Context";
 import { toast } from "react-toastify";
 
 export default function CartItem({ itemId, quantity }) {
-  const { data, addToCart, removeFromCart, removeAllFromCart } =
+  const { data, addToCart, removeFromCart, removeAllFromCart,totalPrice, setTotalPrice } =
     useContext(ShopContext);
   const product = data.find((product) => product.id === itemId);
   return (
@@ -20,6 +20,7 @@ export default function CartItem({ itemId, quantity }) {
           onClick={() => {
             removeAllFromCart(itemId);
             toast.success("product removed!");
+            setTotalPrice(totalPrice-product.price*quantity);
           }}
         >
           X
@@ -29,14 +30,16 @@ export default function CartItem({ itemId, quantity }) {
         <div className="flex gap-[1rem]">
           <button
             className="bg-red-800 py-[.25rem] px-[.75rem] text-[#E6E6E6]"
-            onClick={() => {removeFromCart(itemId)}}
+            onClick={() => {removeFromCart(itemId);
+              setTotalPrice(totalPrice-product.price);}}
           >
             -
           </button>
           <div className="w-[20px] text-center"> {quantity} </div>
           <button
             className="bg-red-800 py-[.25rem] px-[.75rem] text-[#E6E6E6]"
-            onClick={() => addToCart(itemId)}
+            onClick={() => {addToCart(itemId);
+              setTotalPrice(totalPrice+product.price);}}
           >
             +
           </button>

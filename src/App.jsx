@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addToCart = (productId) => {
     const updatedCart = [...cart];
@@ -37,7 +38,7 @@ function App() {
 
     updatedCart[existingItemIndex].quantity > 0
       ? (updatedCart[existingItemIndex].quantity -= 1)
-      : (updatedCart[existingItemIndex].quantity = "");
+      : (updatedCart[existingItemIndex].quantity = null);
 
     setCart(updatedCart);
   };
@@ -49,7 +50,7 @@ function App() {
       (item) => item.id === productId
     );
 
-    updatedCart[existingItemIndex].quantity = "";
+    updatedCart[existingItemIndex].quantity = null;
 
     setCart(updatedCart);
   };
@@ -91,6 +92,8 @@ function App() {
         addToCart,
         removeFromCart,
         removeAllFromCart,
+        totalPrice,
+        setTotalPrice,
       }}
     >
       <ToastContainer

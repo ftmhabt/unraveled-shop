@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 
 export default function Products({ category }) {
-  const { addToCart, cart, data, loading, error } = useContext(ShopContext);
+  const { addToCart, cart, data, loading, error,totalPrice, setTotalPrice } = useContext(ShopContext);
 
   const [hoveredId, setHoveredId] = useState("");
 
@@ -49,6 +49,7 @@ export default function Products({ category }) {
                     onClick={() => {
                       addToCart(product.id);
                       toast.success("added to cart!");
+                      setTotalPrice(totalPrice+product.price)
                     }}
                   >
                     add to cart {getCartQuantity(cart, product.id)}
