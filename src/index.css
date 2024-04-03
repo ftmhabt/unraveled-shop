@@ -6,7 +6,7 @@
 }
 
 #root{
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     min-height: 100vh;
     display: flex;
@@ -21,6 +21,12 @@
 .card-container{
     align-items: end;
 }
+
+@media (min-width: 1024px) { 
+    #root{
+        width: 80vw;
+    }
+ }
 
 @tailwind base;
 @tailwind components;

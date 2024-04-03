@@ -10,8 +10,8 @@ export default function Footer() {
 
 function Subscribe(){
     return(
-        <div className="flex justify-center items-center">
-            <div className="pr-[3rem]">get a <span className="text-red-800">10% discount</span> on your first order for a subscription</div>
+        <div className="flex justify-center items-center lg:flex-nowrap flex-wrap text-center">
+            <div className="lg:pr-[3rem]">get a <span className="text-red-800">10% discount</span> on your first order for a subscription</div>
             <input className="rounded-none border border-black border-r-0 pl-[.5rem] py-[.2rem] flex-[0.75] text-[1rem] focus:outline-0" type="email" placeholder="E-mail"/>
             <button className="bg-red-800 px-[2.5rem] py-[.25rem] text-[#E6E6E6]">subscribe</button>
         </div>
@@ -20,7 +20,7 @@ function Subscribe(){
 
 function Columns() {
   return (
-    <div className="py-[3rem] flex justify-between capitalize *:*:cursor-pointer hover:*:*:text-red-800 first:*:*:font-bold">
+    <div className="py-[3rem] flex lg:justify-between justify-evenly gap-5 capitalize *:*:cursor-pointer hover:*:*:text-red-800 first:*:*:font-bold lg:flex-nowrap flex-wrap">
         <ul>
             <li>catalog</li>
             <li>clothing</li>
