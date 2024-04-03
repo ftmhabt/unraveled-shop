@@ -8,7 +8,7 @@ export default function CartItem({ itemId, quantity }) {
     useContext(ShopContext);
   const product = data.find((product) => product.id === itemId);
   return (
-    <div className="flex w-[700px] h-[150px] justify-between">
+    <div className="flex lg:w-[700px] h-[150px] lg:justify-between gap-3">
       <img
         src={product.image}
         alt={product.title}

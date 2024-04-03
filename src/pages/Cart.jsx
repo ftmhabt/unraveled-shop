@@ -6,7 +6,7 @@ export default function Cart() {
   const { cart,totalPrice } = useContext(ShopContext);
 
   return (
-    <div className="flex flex-col min-h-[300px] items-center justify-between gap-5">
+    <div className="flex flex-col lg:min-h-[300px] min-h-[90vh] items-center justify-between gap-5">
       <h1 className="text-center uppercase font-bold">your cart</h1>
       {cart.findIndex((item) => item.quantity>0)===-1&&<div>there is nothing in your cart</div>}
       {cart.map((item) => item.quantity>0?<CartItem key={item.id} itemId={item.id} quantity={item.quantity}/>:'')}

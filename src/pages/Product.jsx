@@ -18,7 +18,7 @@ export default function Product() {
   };
 
   return (
-    <div className="flex p-[2rem] gap-[2rem]">
+    <div className="flex p-[2rem] gap-[2rem] lg:flex-nowrap flex-wrap">
       <img
         className="max-w-[250px]"
         src={product?.image}

@@ -10,10 +10,10 @@ export default function Footer() {
 
 function Subscribe(){
     return(
-        <div className="flex justify-center items-center lg:flex-nowrap flex-wrap text-center">
+        <div className="flex justify-center items-center lg:flex-nowrap flex-wrap text-center lg:gap-0 gap-2">
             <div className="lg:pr-[3rem]">get a <span className="text-red-800">10% discount</span> on your first order for a subscription</div>
-            <input className="rounded-none border border-black border-r-0 pl-[.5rem] py-[.2rem] flex-[0.75] text-[1rem] focus:outline-0" type="email" placeholder="E-mail"/>
-            <button className="bg-red-800 px-[2.5rem] py-[.25rem] text-[#E6E6E6]">subscribe</button>
+            <input className="rounded-none border border-black lg:border-r-0 pl-[.5rem] py-[.2rem] lg:flex-[0.75] text-[1rem] focus:outline-0" type="email" placeholder="E-mail"/>
+            <button className="bg-red-800 lg:px-[2.5rem] px-[2rem] py-[.25rem] text-[#E6E6E6]">subscribe</button>
         </div>
     )
 }
