@@ -17,8 +17,8 @@
 * **Shopping Cart:** Manages the user's shopping cart, allowing them to add, remove, and update quantities of items. 
 - [x] CartItem: Shows information for each item in the cart (product image, name, quantity, price).
 - [x] UpdateQuantity: Functionality to modify the number of items for a product.
-- [ ] RemoveCartItem: Button to remove an item from the cart.
-- [ ] CartSummary: Displays total price and checkout button.
+- [x] RemoveCartItem: Button to remove an item from the cart.
+- [x] CartSummary: Displays total price and checkout button.
 
 * **Checkout:** Guide users through the checkout process, including collecting shipping information, selecting payment options, and confirming the order.
 - [ ] ShippingForm: Collects user's shipping address.
