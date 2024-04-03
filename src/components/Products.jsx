@@ -31,12 +31,12 @@ export default function Products({ category }) {
             )
             .map((product) => (
               <div
-                className="flex flex-col w-[250px] h-[350px] gap-5"
+                className="flex flex-col w-[250px] h-[360px] gap-5"
                 key={product.id}
                 onMouseEnter={() => handleHover(true, product.id)}
                 onMouseLeave={() => handleHover(false, product.id)}
               >
-                <div className="flex relative items-center w-[200px] h-[250px]">
+                <div className="flex relative items-center w-[200px] h-[250px] mx-auto">
                   <img
                     className="max-w-[200px] max-h-[250px]"
                     src={product.image}
@@ -55,7 +55,7 @@ export default function Products({ category }) {
                     add to cart {getCartQuantity(cart, product.id)}
                   </button>
                 </div>
-                <Link to={`product/${product.id}`}>{product.title}</Link>
+                <Link className="overflow-hidden" to={`product/${product.id}`}>{product.title}</Link>
                 <div>{product.price}$</div>
               </div>
             )))}
