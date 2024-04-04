@@ -1,58 +1,39 @@
 import Header from "./main/Header";
 import Body from "./main/Body";
 import Footer from "./main/Footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useReducer } from "react";
 import { ShopContext } from "./context/Context";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import cartReducer from './components/cartReducer';
 
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const [cart, dispatch] = useReducer(cartReducer, []);
+
   const addToCart = (productId) => {
-    const updatedCart = [...cart];
-
-    const existingItemIndex = updatedCart.findIndex(
-      (item) => item.id === productId
-    );
-
-    if (existingItemIndex === -1) {
-      updatedCart.push({ id: productId, quantity: 1 });
-    } else {
-      updatedCart[existingItemIndex].quantity += 1;
-    }
-
-    setCart(updatedCart);
+    dispatch({
+      type:'add',
+      id:productId
+    });
   };
 
   const removeFromCart = (productId) => {
-    const updatedCart = [...cart];
-
-    const existingItemIndex = updatedCart.findIndex(
-      (item) => item.id === productId
-    );
-
-    updatedCart[existingItemIndex].quantity > 0
-      ? (updatedCart[existingItemIndex].quantity -= 1)
-      : (updatedCart[existingItemIndex].quantity = null);
-
-    setCart(updatedCart);
+    dispatch({
+      type:'remove',
+      id:productId
+    });
   };
 
   const removeAllFromCart = (productId) => {
-    const updatedCart = [...cart];
-
-    const existingItemIndex = updatedCart.findIndex(
-      (item) => item.id === productId
-    );
-
-    updatedCart[existingItemIndex].quantity = null;
-
-    setCart(updatedCart);
+    dispatch({
+      type:'removeAll',
+      id:productId
+    });
   };
 
   useEffect(() => {
