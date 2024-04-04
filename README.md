@@ -37,6 +37,6 @@
  - [ ] **Search:** Allows users to search for specific products using keywords.
 
 
- - [ ] **Responsive Design:** Ensure the shop adapts to different screen sizes (desktop, mobile, etc.).
+ - [x] **Responsive Design:** Ensure the shop adapts to different screen sizes (desktop, mobile, etc.).
  - [ ] **Accessibility:** Make the shop accessible for users with disabilities.
- - [ ] **Performance Optimization:** Optimize page load times and user experience.
+ - [x] **Performance Optimization:** Optimize page load times and user experience.
