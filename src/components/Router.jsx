@@ -3,6 +3,7 @@ import App from "../App";
 import Sale from "../pages/Sale";
 import Cart from "../pages/Cart";
 import Product from "../pages/Product";
+import Search from "../pages/Search";
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -15,6 +16,10 @@ export default function Router() {
         { path: "product/:id", element: <Product /> },
       ],
     },
+    {
+      path: "/search",
+      element: <Search />,
+    }
   ]);
   return <RouterProvider router={router} />;
 }

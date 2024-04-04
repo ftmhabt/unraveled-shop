@@ -13,7 +13,7 @@ export default function Header() {
         <div className="max-[864px]:hidden">about</div>
         <div className="ml-auto"><Link to='/cart'>cart{`(${cart.reduce((acc,item)=>acc+item.quantity,0)})`}</Link></div>
         <div className="max-[360px]:hidden">account</div>
-        <div>search</div>
+        <div><Link to='/search'>search</Link></div>
     </div>
   )
 }
