@@ -1,11 +1,11 @@
 import Header from "./main/Header";
 import Body from "./main/Body";
 import Footer from "./main/Footer";
-import { useState, useEffect,useReducer } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { ShopContext } from "./context/Context";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import cartReducer from './components/cartReducer';
+import cartReducer from "./components/cartReducer";
 
 function App() {
   const [data, setData] = useState(null);
@@ -15,24 +15,30 @@ function App() {
 
   const [cart, dispatch] = useReducer(cartReducer, []);
 
+  const [showSearch, setShowSearch] = useState(false);
+
+  function toggleSearch() {
+    setShowSearch(!showSearch);
+  }
+
   const addToCart = (productId) => {
     dispatch({
-      type:'add',
-      id:productId
+      type: "add",
+      id: productId,
     });
   };
 
   const removeFromCart = (productId) => {
     dispatch({
-      type:'remove',
-      id:productId
+      type: "remove",
+      id: productId,
     });
   };
 
   const removeAllFromCart = (productId) => {
     dispatch({
-      type:'removeAll',
-      id:productId
+      type: "removeAll",
+      id: productId,
     });
   };
 
@@ -62,6 +68,8 @@ function App() {
     FetchData();
   }, []);
 
+  
+
   return (
     <ShopContext.Provider
       value={{
@@ -89,8 +97,8 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <Header />
-      <Body />
+      <Header toggleSearch={toggleSearch} />
+      <Body showSearch={showSearch} toggleSearch={toggleSearch} />
       <Footer />
     </ShopContext.Provider>
   );

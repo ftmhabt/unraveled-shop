@@ -1,11 +1,16 @@
+import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
-import Search from "../pages/Search";
-export default function Body() {
+import Search from "../components/Search";
+export default function Body({showSearch, toggleSearch}) {
 
   return (
     <>
-        <Search/>
+        <Search showSearch={showSearch} toggleSearch={toggleSearch} />
         <Outlet/>
     </>
   )
 }
+Body.propTypes = {
+  showSearch: PropTypes.bool,
+  toggleSearch: PropTypes.func,
+};
