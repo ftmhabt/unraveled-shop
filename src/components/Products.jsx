@@ -4,7 +4,7 @@ import { ShopContext } from "../context/Context";
 import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 
-export default function Products({ category }) {
+export default function Products({ category='all',searchKey='' }) {
   const { addToCart, cart, data, loading, error,totalPrice, setTotalPrice } = useContext(ShopContext);
 
   const [hoveredId, setHoveredId] = useState("");
@@ -27,7 +27,9 @@ export default function Products({ category }) {
         (data &&
           data
             .filter((product) =>
-              category === "all" ? product : product.category === category
+              category === "all" 
+              ? product.title.toLowerCase().includes(searchKey) 
+              : product.category === category
             )
             .map((product) => (
               <div
@@ -70,4 +72,5 @@ Products.propTypes = {
   category: PropTypes.string,
   cart: PropTypes.arrayOf(PropTypes.object),
   setCart: PropTypes.func,
+  searchKey: PropTypes.string,
 };
