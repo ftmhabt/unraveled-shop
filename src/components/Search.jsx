@@ -6,12 +6,12 @@ export default function Search({ showSearch, toggleSearch }) {
   const [showResult, setShowResult] = useState(false);
 
   return (
-    <div className={`${showSearch ? "flex" : "hidden"} relative w-full flex-col`}>
-      <div className="absolute flex flex-col  bg-white">
-        <div className="flex  p-2 justify-center">
+    <div className={`${showSearch ? "flex" : "hidden"} relative`}>
+      <div className="absolute flex flex-col bg-white">
+        <div className="flex p-[1rem] justify-between w-[90vw] lg:w-[80vw]">
           <input
-            className="w-[250px] p-[.5rem] focus:outline-0"
-            type="search"
+            className="p-[.25rem] focus:outline-0"
+            type="text"
             name="search"
             id="search"
             placeholder="search products here"
