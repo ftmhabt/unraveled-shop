@@ -1,11 +1,10 @@
 export default function Footer() {
   return (
-    <div className="py-[2rem] mt-auto">
+    <div className="pt-[2rem] mt-auto">
       <Subscribe />
       <Columns />
-      <div className="text-center uppercase tracking-[1rem] font-bold">
-        unraveled
-      </div>
+      <div className="text-center uppercase tracking-[1rem] pl-[1rem] font-bold">unraveled</div>
+      <div className="text-center mt-5">design inspired by <a className="text-red-800" href="https://www.behance.net/anndandesign">Anna Danyliuk</a></div>
     </div>
   );
 }
