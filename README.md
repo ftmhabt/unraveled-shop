@@ -34,7 +34,7 @@
 - [ ] ProfileManagement: Allows users to edit their profile information.
 
   *
- - [ ] **Search:** Allows users to search for specific products using keywords.
+ - [x] **Search:** Allows users to search for specific products using keywords.
 
 
  - [x] **Responsive Design:** Ensure the shop adapts to different screen sizes (desktop, mobile, etc.).
