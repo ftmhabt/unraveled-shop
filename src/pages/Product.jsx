@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { ShopContext } from "../context/Context";
 import { toast } from "react-toastify";
 
@@ -9,6 +9,10 @@ export default function Product() {
   if (!data) {
     return <div>Loading product...</div>;
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   let product = data.find((item) => item?.id === Number(id));
 
